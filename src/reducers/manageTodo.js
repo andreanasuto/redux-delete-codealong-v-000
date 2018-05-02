@@ -9,9 +9,8 @@ export default function manageTodo(state = {
       const todo = Object.assign({}, action.todo, { id: id });
       return { todos: state.todos.concat(todo) };
     case 'DELETE_TODO':
-      const todo = state.todos.filter(todo => todo.id !== action.id)
-      delete todo
-      return state
+      const todos = state.todos.filter(todo => todo.id !== action.id)
+      return {todos}
     default:
       return state;
   }
